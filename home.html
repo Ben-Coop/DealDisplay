@@ -1,0 +1,59 @@
+<!--
+  Title: home.html
+  Structure of home page, main page of Deal Display
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="home.css" rel="stylesheet">
+  <link href="allGames" .html">
+  <link href="about.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>Deal Display</title>
+</head>
+
+<body>
+  <!--Heading-->
+  <!--Logo-->
+  <img id="Logo" src="/assets/dealDisplay.png" alt="Deal Display Logo">
+  <!--Title-->
+  <h1>Deal Display</h1>
+
+  <!--Search Bar-->
+  <input model="searchQuery" class="search" shadow placeholder="Search a Game by Title" type="text">
+
+  <!--Navigation Bar-->
+  <nav>
+    <navbar id="navbar" v-model="active" fixed text-white square center-collapsed>
+
+      <div id="titles">
+        <navbar-item class="navtext" :active="active == 'Home'" onclick="document.location='./'">
+          Home
+        </navbar-item>
+        <navbar-item class="navtext" :active="active == 'All Games'" onclick="document.location='./allGames.html'">
+          All Games
+        </navbar-item>
+        <navbar-item class="navtext" :active="active == 'About'" onclick="document.location='./about.html'">
+          About
+        </navbar-item>
+      </div>
+  </nav>
+  <!--Hot Deals-->
+  <section id="Hot Deals">
+    <h2>Hot Deals</h2>
+  </section>
+
+  <!--Historical Lows-->
+  <section id="Historical Lows">
+    <h2>Historical Lows</h2>
+  </section>
+
+  <!--Free Games-->
+  <section id="Free Games">
+    <h2>Free Games</h2>
+  </section>
+</body>
+
+</html>
