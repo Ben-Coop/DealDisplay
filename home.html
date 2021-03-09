@@ -16,44 +16,60 @@
 
 <body>
   <!--Heading-->
-  <!--Logo-->
-  <img id="Logo" src="/assets/dealDisplay.png" alt="Deal Display Logo">
-  <!--Title-->
-  <h1>Deal Display</h1>
+  <div class="header">
+    <!--Logo-->
+    <img id="Logo" src="assets/dealDisplay.png" alt="Deal Display Logo">
+    <!--Title-->
+    <h1 class="title">Deal Display</h1>
+    <!--Search Bar-->
+    <form class="searchBar">
+				<input type="text" name="searchbar" placeholder="Search a Game by Title" size="30" style="font-size: 42px;">
+			</form>
+  </div>  
 
-  <!--Search Bar-->
-  <input model="searchQuery" class="search" shadow placeholder="Search a Game by Title" type="text">
-
+<div>
   <!--Navigation Bar-->
-  <nav>
-    <navbar id="navbar" v-model="active" fixed text-white square center-collapsed>
-
-      <div id="titles">
-        <navbar-item class="navtext" :active="active == 'Home'" onclick="document.location='./'">
-          Home
-        </navbar-item>
-        <navbar-item class="navtext" :active="active == 'All Games'" onclick="document.location='./allGames.html'">
-          All Games
-        </navbar-item>
-        <navbar-item class="navtext" :active="active == 'About'" onclick="document.location='./about.html'">
-          About
-        </navbar-item>
-      </div>
-  </nav>
-  <!--Hot Deals-->
-  <section id="Hot Deals">
+  <ul>
+    <li><a class="active" href="home.html">Home</a></li>
+    <li><a href="allGames.html">All Games</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</div>
+<div class="row">
+    <!--Hot Deals-->
+  <div id="Hot Deals" class="column">
     <h2>Hot Deals</h2>
-  </section>
-
+    <div class="card">
+      <h3>Card 1</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+    <div class="card">
+      <h3>Card 2</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+  </div>
   <!--Historical Lows-->
-  <section id="Historical Lows">
+  <div id="Historical Lows" class="column">
     <h2>Historical Lows</h2>
-  </section>
-
+    <div class="card">
+    <h3>Card 1</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+    <div class="card">
+      <h3>Card 2</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+  </div>
   <!--Free Games-->
-  <section id="Free Games">
+  <div id="Free Games" class="column">
     <h2>Free Games</h2>
-  </section>
+  </div>
+</div>
 </body>
 
 </html>
+
