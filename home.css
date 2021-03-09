@@ -1,0 +1,38 @@
+/*
+  home.css
+  Stylesheet for home.html
+*/
+
+body {
+    background-color: #1B2853;
+    color:#fff;
+    font-family: Roboto;
+}
+
+#logo {
+    width: 150px;
+}
+
+h1 {
+    color:#fff;
+    font-size: 50px;
+}
+
+.search {
+    width: 450px;
+    height: 35px;
+}
+
+#navbar {
+    background-color: #0065B3;
+}
+
+.navtext {
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+  }
+
+h2 {
+    color:#EE1C25;
+}
