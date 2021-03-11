@@ -1,75 +1,57 @@
 <!--
-  Title: home.html
+  home.html
   Structure of home page, main page of Deal Display
 -->
 
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="home.css" rel="stylesheet" />
+    <link href="allGames.html" />
+    <link href="about.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <title>Deal Display</title>
+  </head>
 
-<head>
-  <link href="home.css" rel="stylesheet">
-  <link href="allGames" .html">
-  <link href="about.html">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-  <title>Deal Display</title>
-</head>
-
-<body>
-  <!--Heading-->
-  <div class="header">
-    <!--Logo-->
-    <img id="Logo" src="assets/dealDisplay.png" alt="Deal Display Logo">
-    <!--Title-->
-    <h1 class="title">Deal Display</h1>
-    <!--Search Bar-->
-    <form class="searchBar">
-				<input type="text" name="searchbar" placeholder="Search a Game by Title" size="30" style="font-size: 42px;">
-			</form>
-  </div>  
-
-<div>
-  <!--Navigation Bar-->
-  <ul>
-    <li><a class="active" href="home.html">Home</a></li>
-    <li><a href="allGames.html">All Games</a></li>
-    <li><a href="about.html">About</a></li>
-  </ul>
-</div>
-<div class="row">
-    <!--Hot Deals-->
-  <div id="Hot Deals" class="column">
-    <h2>Hot Deals</h2>
-    <div class="card">
-      <h3>Card 1</h3>
-      <p>Some text</p>
-      <p>Some text</p>
+  <body>
+    <!--Header-->
+    <div class="header">
+      <!--Logo and Title-->
+      <a href="home.html">
+        <img src="assets/dealDisplay.png" alt="Deal Display Logo"
+      /></a>
+      <a href="home.html"> <h1>Deal Display</h1></a>
+      <!--Search Bar-->
+      <form class="search">
+        <input type="text" placeholder="Search a Game by Title" />
+      </form>
     </div>
-    <div class="card">
-      <h3>Card 2</h3>
-      <p>Some text</p>
-      <p>Some text</p>
+
+    <!--Navigation Bar-->
+    <nav>
+      <li><a class="active" href="home.html">Home</a></li>
+      <li><a href="allGames.html">All Games</a></li>
+      <li><a href="about.html">About</a></li>
+    </nav>
+
+    <!--Featured Games-->
+    
+      <!--Hot Deals-->
+    <div id="Hot Deals" class="column">
+      <h2>Hot Deals</h2>
     </div>
-  </div>
-  <!--Historical Lows-->
+
+      <!--Historical Lows-->
   <div id="Historical Lows" class="column">
     <h2>Historical Lows</h2>
-    <div class="card">
-    <h3>Card 1</h3>
-      <p>Some text</p>
-      <p>Some text</p>
     </div>
-    <div class="card">
-      <h3>Card 2</h3>
-      <p>Some text</p>
-      <p>Some text</p>
-    </div>
-  </div>
-  <!--Free Games-->
+
+    <!--Free Games-->
   <div id="Free Games" class="column">
     <h2>Free Games</h2>
-  </div>
+    </div>
 </div>
-</body>
-
+  </body>
 </html>
-

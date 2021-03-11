@@ -1,17 +1,16 @@
 /*
-  home.css
-  Stylesheet for home.html
+  allGames.css
+  Stylesheet for allGames.html
 */
 
 body {
   color: #fff;
   font-family: verdana;
   margin: 0%;
-  background-image: linear-gradient(#000, #1b2853);
+  background-image: linear-gradient( #000, #1b2853);
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
 .header {
   overflow: auto;
   background-color: #1b2853;
@@ -70,16 +69,4 @@ li a:hover {
 
 .active {
   background-color: #ee1c25;
-}
-
-.column {
-  text-align: center;
-  float: left;
-  width: 33.33%;
-  padding-top: 1%;
-}
-
-.column h2 {
-  font-size: 1.75vw;
-  color: #ee1c25;
 }
