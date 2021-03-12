@@ -8,7 +8,7 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Open home.html",
-            "file": "c:\\Users\\Ben\\Documents\\GitHub\\Deal Display\\home.html"
+            "file": "c:\\Users\\Ben\\Documents\\GitHub\\DealDisplay\\home.html"
         }
     ]
 }

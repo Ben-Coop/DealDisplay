@@ -24,9 +24,10 @@
       /></a>
       <a href="home.html"> <h1>Deal Display</h1></a>
       <!--Search Bar-->
-      <form class="search">
-        <input type="text" placeholder="Search a Game by Title" />
+      <form class="search" onsubmit="sendSearch()">
+        <input id="searchBar"  type="text" placeholder="Search a Game by Title" />
       </form>
+      <script src="search.js"></script>
     </div>
 
     <!--Navigation Bar-->
