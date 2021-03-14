@@ -5,10 +5,10 @@
 
 
 function sendSearch() {
-    var searchBar = document.getElementById('searchBar');
-    var searchTitle = searchBar.value;
+    var searchString = window.location.search;
+    var userSearch = searchString.slice(14);
 
-    var searchURL = "https://www.cheapshark.com/api/1.0/games?title=" + searchTitle;
+    var searchURL = "https://www.cheapshark.com/api/1.0/games?title=" + userSearch;
 
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 
@@ -16,10 +16,10 @@ function sendSearch() {
             handleSearchResult(xmlHttp.responseText);
         }
     }
-    xmlHttp.open("GET", searchURL, true); // true for asynchronous 
+    xmlHttp.open("GET", searchURL, false); // true for asynchronous, false for synchronous
     xmlHttp.send(null);
 }
 
 function handleSearchResult(response) {
- console.log(response);
+
 }

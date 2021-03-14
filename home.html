@@ -20,14 +20,13 @@
     <div class="header">
       <!--Logo and Title-->
       <a href="home.html">
-        <img src="assets/dealDisplay.png" alt="Deal Display Logo"
-      /></a>
+        <img src="assets/dealDisplay.png" alt="Deal Display Logo"/></a>
       <a href="home.html"> <h1>Deal Display</h1></a>
+
       <!--Search Bar-->
-      <form class="search" onsubmit="sendSearch()">
-        <input id="searchBar"  type="text" placeholder="Search a Game by Title" />
+      <form class="search" action="searchResults.html" method="GET"> 
+        <input name="searchString" type="text" placeholder="Search a Game by Title" />
       </form>
-      <script src="search.js"></script>
     </div>
 
     <!--Navigation Bar-->
@@ -37,22 +36,21 @@
       <li><a href="about.html">About</a></li>
     </nav>
 
-    <!--Featured Games-->
-    
-      <!--Hot Deals-->
-    <div id="Hot Deals" class="column">
-      <h2>Hot Deals</h2>
-    </div>
+      <!--Featured Games-->
+      
+        <!--Hot Deals-->
+      <div id="Hot Deals" class="column">
+        <h2>Hot Deals</h2>
+      </div>
 
-      <!--Historical Lows-->
-  <div id="Historical Lows" class="column">
-    <h2>Historical Lows</h2>
-    </div>
+        <!--Historical Lows-->
+      <div id="Historical Lows" class="column">
+        <h2>Historical Lows</h2>
+      </div>
 
-    <!--Free Games-->
-  <div id="Free Games" class="column">
-    <h2>Free Games</h2>
-    </div>
-</div>
+      <!--Free Games-->
+      <div id="Free Games" class="column">
+        <h2>Free Games</h2>
+      </div>
   </body>
 </html>
