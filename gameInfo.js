@@ -1,6 +1,6 @@
 /*
   gameInfo.js
-  Processing  of user input
+  Processing of user input on game-cards
 */
 
 function gameSearch() {

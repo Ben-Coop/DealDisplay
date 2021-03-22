@@ -7,7 +7,7 @@ function sendSearch() {
     var searchString = window.location.search;
     var userSearch = searchString.slice(14);
 
-    var searchURL = "https://www.cheapshark.com/api/1.0/games?title=" + userSearch;
+    var searchURL = "https://www.cheapshark.com/api/1.0/games?title=" + userSearch + '&limit=50';
 
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 
@@ -19,18 +19,12 @@ function sendSearch() {
     xmlHttp.send(null);
 }
 
-function createButtonTarget(gameID) {
-    return function () {
-     location.href = "gameInfo.html?gameID=" + gameID;
-    }
-}
-
 function handleSearchResult(response) {
     var gameArray = JSON.parse(response);
 
     var resultDisplayDiv = document.getElementById("searchResultDisplay");
 
-    for(var i =0; i<gameArray.length && i<20; i++){
+    for(var i =0; i<gameArray.length; i++){ 
         var button = document.createElement("BUTTON");
         var gameId = gameArray[i].gameID;
 
@@ -59,8 +53,14 @@ function handleSearchResult(response) {
 
  function createButtonHTML(thumb, title, price) {
     return '<div class="gameCard">' +  
-                '<img src=' + thumb + 'alt=' + thumb + '/>' +
+                '<img src=' + thumb + '/>' +
                 '<h2>' + title + '</h2>' +
                 '<h3> $' + price + '</h3>' +
             '</div>';
+}
+
+function createButtonTarget(gameID) {
+    return function () {
+     location.href = "gameInfo.html?gameID=" + gameID;
+    }
 }
