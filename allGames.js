@@ -3,9 +3,15 @@
   Processing of all games page
 */
 
+var input = "";
 var filterType = "Deal Rating";
 var sortDirection = 0; //0 for low-high, 1 for high-low
 var pageNumber = 0;
+
+function filterInput() {
+    i = document.getElementById("Input").value;
+    getAllGames();
+}
 
 function filter(type) {
     if(filterType == type) {
@@ -41,7 +47,7 @@ function getAllGames() {
     
     resultDisplayDiv.innerHTML = "";
 
-    var searchURL = "https://www.cheapshark.com/api/1.0/deals?storeID=1&pageSize=24&sortBy=" + filterType + "&desc=" + sortDirection + "&pageNumber=" + pageNumber;
+    var searchURL = "https://www.cheapshark.com/api/1.0/deals?storeID=1&pageSize=24&sortBy=" + filterType + "&desc=" + sortDirection + "&pageNumber=" + pageNumber + "&title=" + input;
 
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {

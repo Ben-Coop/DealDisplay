@@ -13,3 +13,5 @@ GET https://www.cheapshark.com/api/1.0/games?id=143429
 GET https://www.cheapshark.com/api/1.0/deals?id=g1DVDtUwRhv8unj0mei1OS9ajgmc9pn3LxBTn%2BbsN7M%3D
 ###
 GET https://www.cheapshark.com/api/1.0/deals?storeID=1&pageSize=24&sortBy=Deal+Rating&desc=1
+###
+GET https://www.cheapshark.com/api/1.0/deals?storeID=1&pageSize=24&sortBy=Deal+Rating&title=

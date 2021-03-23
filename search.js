@@ -7,7 +7,7 @@ function sendSearch() {
     var searchString = window.location.search;
     var userSearch = searchString.slice(14);
 
-    var searchURL = "https://www.cheapshark.com/api/1.0/games?title=" + userSearch + '&limit=50';
+    var searchURL = "https://www.cheapshark.com/api/1.0/games?title=" + userSearch + '&limit=32';
 
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 

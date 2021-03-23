@@ -45,6 +45,7 @@ function handleSearchResult(response) {
 
         button.innerHTML = createStoreButtonHTML(storesInfo[gameInfo.deals[i].storeID-1].storeName, 'https://www.cheapshark.com' + storesInfo[gameInfo.deals[i].storeID-1].images.logo, gameInfo.info.title, gameInfo.deals[i].price);
 
+        button.onclick = createButtonTarget(gameInfo.deals[i].dealID );
         resultDisplayDiv.appendChild(button);
     }
 }
@@ -66,3 +67,8 @@ function createStoreButtonHTML(store, storeImage, title, price) {
         '</div>';
 }
 
+function createButtonTarget(dealID) {
+    return function () {
+     location.href = "https://www.cheapshark.com/redirect?dealID={" + dealID + "}";
+    }
+}

@@ -39,6 +39,8 @@
 
   <!--Filtering Bar-->
   <div id="Filtering">
+    <input type="text" id="Input" onkeyup="filterInput()" placeholder="Search Games by Title">
+
     <ul>
       <button onclick="filter('Title')">Title</button>
       <button onclick="filter('Price')">Price</button>
@@ -55,7 +57,7 @@
    <div id="Paging">
     <ul>
       <button onclick="page('First')">First</button>
-      <button onclick="page('Next')">Next</button>
+      <button onclick="page('Previous')">Previous</button>
       <button onclick="page('1')">1</button>
       <button onclick="page('2')">2</button>
       <button onclick="page('3')">3</button>
@@ -66,7 +68,7 @@
       <button onclick="page('8')">8</button>
       <button onclick="page('9')">9</button>
       <button onclick="page('10')">10</button>
-      <button onclick="page('Previous')">Previous</button>
+      <button onclick="page('Next')">Next</button>
       <button onclick="page('Last')">Last</button>
     </ul>
   </div>
