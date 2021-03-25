@@ -11,7 +11,7 @@ var arrow = document.createElement("i");
 document.getElementById(filterType).appendChild(arrow);
 
 function filterInput() {
-    i = document.getElementById("Input").value;
+    input = document.getElementById("Input").value;
     getAllGames();
 }
 
@@ -52,7 +52,7 @@ function getAllGames() {
     
     resultDisplayDiv.innerHTML = "";
 
-    var searchURL = "https://www.cheapshark.com/api/1.0/deals?storeID=1&pageSize=24&sortBy=" + filterType + "&desc=" + sortDirection + "&pageNumber=" + pageNumber + "&title=" + input;
+    var searchURL = "https://www.cheapshark.com/api/1.0/deals?storeID=1&pageSize=20&sortBy=" + filterType + "&desc=" + sortDirection + "&pageNumber=" + pageNumber + "&title=" + input;
 
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {

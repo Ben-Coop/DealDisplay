@@ -11,7 +11,7 @@ function sendSearch() {
     var resultDisplayDiv = document.getElementById("searchResultDisplay");
     resultDisplayDiv.innerHTML = '<h2 id="searchTerm"> Search for: "' + userSearch + '"</h2>';
 
-    var searchURL = "https://www.cheapshark.com/api/1.0/games?title=" + userSearch + '&limit=32';
+    var searchURL = "https://www.cheapshark.com/api/1.0/games?title=" + userSearch + '&limit=24';
 
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 
