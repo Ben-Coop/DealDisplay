@@ -1,6 +1,6 @@
 /*
-  searchResults.css
-  Stylesheet for searchResults.html
+  search.css
+  Stylesheet for search.html
 */
 
 body {
@@ -70,4 +70,49 @@ body {
   
   .active {
     background-color: #ee1c25;
+  }
+
+  #searchTerm {
+    font-size: 2vw;
+    margin-bottom: 3vw;
+  }
+
+  #searchResultDisplay {
+    text-align: center;
+    margin-left: 8vw;
+    margin-right: 8vw;
+  }
+
+  #searchResultDisplay button {
+    width: 18vw;
+    margin: 0.6vw;
+  }
+
+  .gameCard img {
+    height: 5vw;
+    width: auto;
+  }
+  
+  .gameCard h2 {
+    font-size: 1vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .gameCard h3 {
+    font-size: 1.25vw;
+    float: right;
+    margin-right: 3vw;
+  }
+
+  button {
+    background-color: #C3E4ED;
+    margin-bottom: .5vw;
+    transition-duration: 0.3s;
+    border: none;
+  }
+
+  button:hover {
+    background-color: #B4CDCD;
   }

@@ -1,0 +1,151 @@
+/*
+  gameInfo.css
+  Stylesheet for gameInfo.html
+*/
+
+body {
+    color: #fff;
+    font-family: verdana;
+    margin: 0%;
+    background-image: linear-gradient(#000, #1b2853);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .header {
+    overflow: auto;
+    background-color: #1b2853;
+  }
+  
+  .header img {
+    float: left;
+    width: 10%;
+    height: auto;
+    padding-left: 2%;
+  }
+  
+  .header h1 {
+    font-size: 3.5vw;
+    color: #fff;
+    display: inline-block;
+    position: relative;
+    padding-left: 3%;
+  }
+  
+  .search {
+    float: right;
+    padding-right: 15%;
+    padding-top: 3%;
+  }
+  
+  .search input[type="text"] {
+    width: 35vw;
+    padding: 1vw;
+    border: none;
+    font-size: 1.5vw;
+  }
+  
+  nav {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #0065b3;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 1vw 5vw;
+    font-size: 1.5vw;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    color: #000000;
+  }
+  
+  .active {
+    background-color: #ee1c25;
+  }
+
+  h2 {
+      text-align: center;
+      margin-top: 3%;
+      font-size: 2vw;
+  }
+
+  #gameHeader {
+      text-align: center;
+      margin-top: 2vw;
+  }
+
+  .game {
+    width: 65vw;
+  }
+
+  .game img {
+    float: left;
+    height: 8vw;
+    width: auto;
+    margin-left: 3vw;
+    margin-bottom: 1vw;
+  }
+
+  .game h2 {
+      margin-bottom: 2%;
+      font-size: 2vw;
+  }
+
+  .game h3 {
+      font-size: 1.5vw;
+      margin-top: 1vw;
+  }
+
+  #gameDeals {
+      text-align: center;
+  }
+
+  button {
+    background-color: #C3E4ED;
+    margin-bottom: .5%;
+    transition-duration: 0.3s;
+    border: none;
+  }
+
+  #gameDeals button:hover {
+    background-color: #B4CDCD;
+  }
+
+  .deal {
+    width: 65vw;
+    height: 5vw;
+  }
+
+  .deal img {
+    float: left;
+    height: 3vw;
+    width: auto;
+    margin: 0%;
+  }
+
+  .deal h2 {
+    font-size: 1.25vw;
+    margin-right: 26vw;
+  }
+
+  .deal h3 {
+    font-size: 1vw;
+    margin-right: 25vw;
+  }
+
+  .deal h4 {
+    font-size: 1.5vw;
+    text-align: right;
+    position: relative;
+    bottom: 4.5vw;
+    margin-right: 3vw;
+  }

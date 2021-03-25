@@ -13,7 +13,6 @@ body {
 }
 
 .header {
-  overflow: auto;
   background-color: #1b2853;
 }
 
@@ -82,4 +81,50 @@ li a:hover {
 .column h2 {
   font-size: 1.75vw;
   color: #ee1c25;
+}
+
+  button {
+    background-color: #C3E4ED;
+    margin-bottom: .5vw;
+    transition-duration: 0.3s;
+    border: none;
+  }
+
+  button:hover {
+    background-color: #B4CDCD;
+  }
+
+.gameCard {
+  width: 28vw;
+  height: 6vw;
+}
+
+.gameCard h2 {
+  color: #000;
+  float: inline-end;
+  font-size: 1.2vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gameCard h3 {
+  float: right;
+  font-size: 1.5vw;
+  margin-right: 2vw;
+}
+
+#gameImage {
+  float: left;
+  width: auto;
+  height:4.5vw;
+  margin-right: 3%;
+}
+
+#storeImage {
+  float: right;
+  width: 3vw;
+  height: auto;
+  margin-top: .8vw;
+  margin-right: 1vw;
 }

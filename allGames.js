@@ -7,6 +7,8 @@ var input = "";
 var filterType = "Deal Rating";
 var sortDirection = 0; //0 for low-high, 1 for high-low
 var pageNumber = 0;
+var arrow = document.createElement("i");
+document.getElementById(filterType).appendChild(arrow);
 
 function filterInput() {
     i = document.getElementById("Input").value;
@@ -17,12 +19,15 @@ function filter(type) {
     if(filterType == type) {
         if(sortDirection == 0) {
             sortDirection = 1;
+            arrow.style.transform = "rotate(-135deg)";
         } else {
             sortDirection = 0;
-        }  
+            arrow.style.transform = "rotate(45deg)";
+        }
     } else {
         filterType = type;
         sortDirection = 0;
+        document.getElementById(filterType).appendChild(arrow);
     }
     getAllGames();
 }

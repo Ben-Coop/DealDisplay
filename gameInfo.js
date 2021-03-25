@@ -22,11 +22,11 @@ function gameSearch() {
 function handleSearchResult(response) {
     var gameInfo = JSON.parse(response);
 
-    var resultDisplayDiv = document.getElementById("game");
+    var resultDisplayDiv = document.getElementById("gameHeader");
 
     var button = document.createElement("BUTTON");
 
-    button.innerHTML = createButtonHTML(gameInfo.info.title, gameInfo.info.thumb, gameInfo.deals[0].price);
+    button.innerHTML = createButtonHTML(gameInfo.info.title, gameInfo.info.thumb, gameInfo.deals[0].retailPrice, gameInfo.deals[0].price, gameInfo.cheapestPriceEver.price);
     resultDisplayDiv.appendChild(button);
 
     var storesInfo;
@@ -43,27 +43,29 @@ function handleSearchResult(response) {
     for (var i = 0; i < gameInfo.deals.length; i++) {
         var button = document.createElement("BUTTON");
 
-        button.innerHTML = createStoreButtonHTML(storesInfo[gameInfo.deals[i].storeID-1].storeName, 'https://www.cheapshark.com' + storesInfo[gameInfo.deals[i].storeID-1].images.logo, gameInfo.info.title, gameInfo.deals[i].price);
+        button.innerHTML = createStoreButtonHTML(storesInfo[gameInfo.deals[i].storeID-1].storeName, 'https://www.cheapshark.com' + storesInfo[gameInfo.deals[i].storeID-1].images.banner, gameInfo.info.title, gameInfo.deals[i].price);
 
         button.onclick = createButtonTarget(gameInfo.deals[i].dealID );
         resultDisplayDiv.appendChild(button);
     }
 }
 
-function createButtonHTML(title, thumb, price) {
+function createButtonHTML(title, thumb, retailPrice, currentPrice, lowestPrice) {
     return '<div class="game">' +
         '<h2>' + title + '</h2>' +
-        '<img src=' + thumb + '/>' +
-        '<h3> $' + price + '</h3>' +
+        '<img src=' + thumb + '>' +
+        '<h3> Retail Price: $' + retailPrice + '</h3>' +
+        '<h3> Current Low: $' + currentPrice + '</h3>' +
+        '<h3> All Time Low: $' + lowestPrice + '</h3>' +
         '</div>';
 }
 
 function createStoreButtonHTML(store, storeImage, title, price) {
     return '<div class="deal">' +
-        '<img src=' + storeImage + '/>' +
-        '<h2>' + store + '</h2>' +
-        '<h3>' + title + '</h3>' +
-        '<h3> $' + price + '</h3>' +
+        '<img src=' + storeImage + '>' +
+        '<h2>' + title + '</h2>' +
+        '<h3> From ' + store + '</h3>' +
+        '<h4> $' + price + '</h4>' +
         '</div>';
 }
 

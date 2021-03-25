@@ -25,7 +25,7 @@
     </a>
 
     <!--Search Bar-->
-    <form class="search" action="searchResults.html" method="GET">
+    <form class="search" action="search.html" method="GET">
       <input name="searchString" type="text" placeholder="Search a Game by Title" />
     </form>
   </div>
@@ -39,25 +39,27 @@
 
   <!--Filtering Bar-->
   <div id="Filtering">
-    <input type="text" id="Input" onkeyup="filterInput()" placeholder="Search Games by Title">
+    <input type="text" id="Input" onkeyup="filterInput()" placeholder="Filter Games by Title">
 
     <ul>
-      <button onclick="filter('Title')">Title</button>
-      <button onclick="filter('Price')">Price</button>
-      <button onclick="filter('Release')">Release Date</button>
-      <button onclick="filter('Reviews')">Reviews</button>
-      <button onclick="filter('Deal Rating')">Deal Rating</button>
-      <button onclick="filter('Savings')">Savings</button>
+      <button id="Title" onclick="filter('Title')">Title</button>
+      <button id="Price" onclick="filter('Price')">Price</button>
+      <button id="Release" onclick="filter('Release')">Release Date</button>
+      <button id="Reviews" onclick="filter('Reviews')">Reviews</button>
+      <button id="Deal Rating" onclick="filter('Deal Rating')">Deal Rating</button>
+      <button id="Savings" onclick="filter('Savings')">Savings</button>
     </ul>
   </div>
 
-  <div id="Games"></div>
+  <div id="Games">
+
+  </div>
 
    <!--Paging Bar-->
    <div id="Paging">
-    <ul>
       <button onclick="page('First')">First</button>
       <button onclick="page('Previous')">Previous</button>
+      <button id="gap"></button>
       <button onclick="page('1')">1</button>
       <button onclick="page('2')">2</button>
       <button onclick="page('3')">3</button>
@@ -68,9 +70,9 @@
       <button onclick="page('8')">8</button>
       <button onclick="page('9')">9</button>
       <button onclick="page('10')">10</button>
+      <button id="gap"></button>
       <button onclick="page('Next')">Next</button>
       <button onclick="page('Last')">Last</button>
-    </ul>
   </div>
   <script src="allGames.js"></script>
 </body>

@@ -3,9 +3,13 @@
   Processing of search bar input
 */
 
+
 function sendSearch() {
     var searchString = window.location.search;
     var userSearch = searchString.slice(14);
+
+    var resultDisplayDiv = document.getElementById("searchResultDisplay");
+    resultDisplayDiv.innerHTML = '<h2 id="searchTerm"> Search for: "' + userSearch + '"</h2>';
 
     var searchURL = "https://www.cheapshark.com/api/1.0/games?title=" + userSearch + '&limit=32';
 
@@ -53,7 +57,7 @@ function handleSearchResult(response) {
 
  function createButtonHTML(thumb, title, price) {
     return '<div class="gameCard">' +  
-                '<img src=' + thumb + '/>' +
+                '<img src=' + thumb + '>' +
                 '<h2>' + title + '</h2>' +
                 '<h3> $' + price + '</h3>' +
             '</div>';

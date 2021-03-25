@@ -5,53 +5,56 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <link href="home.css" rel="stylesheet" />
-    <link href="allGames.html" />
-    <link href="about.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
-    />
-    <title>Deal Display</title>
-  </head>
 
-  <body onload="displayHome()">
-    <!--Header-->
-    <div class="header">
-      <!--Logo and Title-->
-      <a href="home.html">
-        <img src="assets/dealDisplay.png" alt="Deal Display Logo"/></a>
-      <a href="home.html"> <h1>Deal Display</h1></a>
+<head>
+  <meta charset="utf-8" />
+  <link href="home.css" rel="stylesheet" />
+  <link href="allGames.html" />
+  <link href="about.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+  <title>Deal Display</title>
+</head>
 
-      <!--Search Bar-->
-      <form class="search" action="searchResults.html"> 
-        <input name="searchString" type="text" placeholder="Search a Game by Title"/>
-      </form>
-    </div>
+<body onload="displayHome()">
+  <!--Header-->
+  <div class="header">
+    <!--Logo and Title-->
+    <a href="home.html">
+      <img src="assets/dealDisplay.png"></a>
+    <a href="home.html">
+      <h1>Deal Display</h1>
+    </a>
 
-    <!--Navigation Bar-->
-    <nav>
-      <li><a class="active" href="home.html">Home</a></li>
-      <li><a href="allGames.html">All Games</a></li>
-      <li><a href="about.html">About</a></li>
-    </nav>
+    <!--Search Bar-->
+    <form class="search" action="search.html">
+      <input name="searchString" type="text" placeholder="Search a Game by Title">
+    </form>
+  </div>
 
-      <!--Featured Games-->
-      
-        <!--Hot Deals-->
-      <div id="Hot Deals" class="column">
-        <h2>Hot Deals</h2>
-      </div>
+  <!--Navigation Bar-->
+  <nav>
+    <li><a class="active" href="home.html">Home</a></li>
+    <li><a href="allGames.html">All Games</a></li>
+    <li><a href="about.html">About</a></li>
+  </nav>
 
-        <!--Best Deals-->
-      <div id="Best Deals" class="column">
-        <h2>Best Deals</h2>
-      </div>
+  <!--Featured Games-->
 
-      <!--New Games-->
-      <div id="New Games" class="column">
-        <h2>New Games</h2>
-      </div>
-      <script src="home.js"></script>
-  </body>
+  <!--Hot Deals-->
+  <div id="Hot Deals" class="column">
+    <h2>Hot Deals</h2>
+  </div>
+
+  <!--Best Deals-->
+  <div id="Best Deals" class="column">
+    <h2>Best Deals</h2>
+  </div>
+
+  <!--New Games-->
+  <div id="New Games" class="column">
+    <h2>New Games</h2>
+  </div>
+  <script src="home.js"></script>
+</body>
+
 </html>

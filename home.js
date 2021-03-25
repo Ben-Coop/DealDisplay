@@ -4,6 +4,15 @@
 */
 
 function displayHome() {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+            storesInfo = JSON.parse(xmlHttp.responseText);
+        }
+    }
+    xmlHttp.open("GET", 'https://www.cheapshark.com/api/1.0/stores', false); // true for asynchronous, false for synchronous
+    xmlHttp.send(null);
+
     getHotDeals();
     getBestDeals();
     getNewGames();
@@ -27,15 +36,6 @@ function displayHotDeals(response) {
     gameArray = JSON.parse(response);
 
     var resultDisplayDiv = document.getElementById("Hot Deals");
-
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function () {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-            storesInfo = JSON.parse(xmlHttp.responseText);
-        }
-    }
-    xmlHttp.open("GET", 'https://www.cheapshark.com/api/1.0/stores', false); // true for asynchronous, false for synchronous
-    xmlHttp.send(null);
 
     for (i = 0; i < gameArray.length; i++) { 
         var button = document.createElement("BUTTON");
@@ -79,15 +79,6 @@ function displayBestDeals(response) {
 
     var resultDisplayDiv = document.getElementById("Best Deals");
 
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function () {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-            storesInfo = JSON.parse(xmlHttp.responseText);
-        }
-    }
-    xmlHttp.open("GET", 'https://www.cheapshark.com/api/1.0/stores', false); // true for asynchronous, false for synchronous
-    xmlHttp.send(null);
-
     for (i = 0; i < gameArray.length; i++) { 
         var button = document.createElement("BUTTON");
         var gameId = gameArray[i].gameID;
@@ -130,15 +121,6 @@ function displayNewGames(response) {
 
     var resultDisplayDiv = document.getElementById("New Games");
 
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function () {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-            storesInfo = JSON.parse(xmlHttp.responseText);
-        }
-    }
-    xmlHttp.open("GET", 'https://www.cheapshark.com/api/1.0/stores', false); // true for asynchronous, false for synchronous
-    xmlHttp.send(null);
-
     for (i = 0; i < gameArray.length; i++) { 
         var button = document.createElement("BUTTON");
         var gameId = gameArray[i].gameID;
@@ -167,16 +149,16 @@ function displayNewGames(response) {
         image = gameInfo.info.thumb
     }
 
-    function getStoreImage(J) {
+    function getStoreImage() {
         storeImage = 'https://www.cheapshark.com' + storesInfo[gameArray[i].storeID-1].images.logo
     }
 
     function createButtonHTML(thumb, title, storeImage, price) {
         return '<div class="gameCard">' +
-            '<img src=' + thumb + '/>' +
+            '<img id="gameImage" + src=' + thumb + '>' +
             '<h2>' + title + '</h2>' +
-            '<img src=' + storeImage + '/>' +
             '<h3> $' + price + '</h3>' +
+            '<img id="storeImage" src=' + storeImage + '>' +       
             '</div>';
     }
 

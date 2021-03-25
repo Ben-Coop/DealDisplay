@@ -70,3 +70,111 @@ li a:hover {
 .active {
   background-color: #ee1c25;
 }
+
+#Games {
+  text-align: center;
+  margin-left: 8vw;
+  margin-right: 8vw;
+}
+
+#Games button {
+  width: 18vw;
+  margin: 0.6vw;
+}
+
+.gameCard img {
+  height: 5vw;
+  width: auto;
+}
+
+.gameCard h2 {
+  font-size: 1vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gameCard h3 {
+  font-size: 1.25vw;
+  float: right;
+  margin-right: 3vw;
+}
+
+#Games button {
+  background-color: #C3E4ED;
+  transition-duration: 0.3s;
+  border: none;
+}
+
+#Games button:hover {
+  background-color: #B4CDCD;
+}
+
+#Filtering {
+  margin-bottom: 2.5vw;
+  margin-top: 1vw;
+}
+
+#Input {
+  float: left;
+}
+
+#Input[type="text"] {
+  width: 25vw;
+  padding: .5vw;
+  border: none;
+  font-size: 1vw;
+  margin-left: 11.7vw;
+  margin-right: 1vw;
+}
+
+#Filtering button {
+  font-size: 1.3vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  margin-right: 0.65vw;
+  height: 2.2vw;
+  width: auto;
+
+  background-color: white; 
+  color: black;
+  border: 0.15vw solid #ee1c25;
+  border-radius: 0.5vw;
+  transition-duration: 0.2s;
+}
+#Filtering button:hover {
+  background-color: #ee1c25;
+  color: white;
+}
+
+i {
+    border: solid black;
+    border-width: 0 0.25vw 0.25vw 0;
+    display: inline-block;
+    padding: 0.2vw;
+    margin-left: 0.5vw;
+    margin-right: -0.3vw;
+
+    transform: rotate(45deg);
+}
+
+#Paging {
+  margin-top: 1vw;
+  margin-left: 11.7vw;
+}
+
+#Paging button {
+  font-size: 1.25vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 0.25vw;
+  padding-bottom: 0.25vw;
+  margin: 0vw;
+  float: left;
+}
+
+#gap {
+  width: 12.45vw;
+  height: 2.15vw;
+}
+

@@ -8,7 +8,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <link href="searchResults.css" rel="stylesheet" />
+  <link href="gameInfo.css" rel="stylesheet" />
   <link href="home.html" />
   <link href="allGames.html" />
   <link href="about.html" />
@@ -17,21 +17,18 @@
 </head>
 
 <body onload="gameSearch()">
-  <!--Header-->
-  <div class="header">
-    <!--Logo and Title-->
-    <a href="home.html">
-      <img src="assets/dealDisplay.png" alt="Deal Display Logo" /></a>
-    <a href="home.html">
-      <h1>Deal Display</h1>
-    </a>
+    <!--Header-->
+    <div class="header">
+      <!--Logo and Title-->
+      <a href="home.html">
+        <img src="assets/dealDisplay.png"/></a>
+      <a href="home.html"> <h1>Deal Display</h1></a>
 
-    <!--Search Bar-->
-    <form class="search">
-      <input name="searchString" type="text" placeholder="Search a Game by Title" />
-    </form>
-    <script src="gameInfo.js"></script>
-  </div>
+      <!--Search Bar-->
+      <form class="search" action="search.html"> 
+        <input name="searchString" type="text" placeholder="Search a Game by Title"/>
+      </form>
+    </div>
 
   <!--Navigation Bar-->
   <nav>
@@ -41,13 +38,15 @@
   </nav>
 
 </div>
-<div id="game">
+<div id="gameHeader">
 
 </div>
-<div id="gameDeals">
 <h2>Compare Deals</h2>
+<div id="gameDeals">
+
   
 </div>
+<script src="gameInfo.js"></script>
 </body>
 
 </html>
