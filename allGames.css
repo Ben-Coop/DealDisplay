@@ -107,7 +107,7 @@ li a:hover {
 }
 
 #Games button:hover {
-  background-color: #B4CDCD;
+  background-color: #6996AD;
 }
 
 #Filtering {
@@ -165,16 +165,21 @@ i {
 
 #Paging button {
   font-size: 1.25vw;
-  padding-left: 1vw;
-  padding-right: 1vw;
+  padding-left: 1.25vw;
+  padding-right: 1.25vw;
   padding-top: 0.25vw;
   padding-bottom: 0.25vw;
   margin: 0vw;
+  margin-bottom: 1vw;
   float: left;
 }
 
-#gap {
-  width: 12.45vw;
+#gap1 {
+  width: 14vw;
   height: 2.15vw;
 }
 
+#gap2 {
+  width: 14vw;
+  height: 2.15vw;
+}

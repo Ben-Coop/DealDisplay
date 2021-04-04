@@ -10,6 +10,7 @@ body {
     background-image: linear-gradient(#000, #1b2853);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    margin-bottom: 1vw;
   }
   
   .header {
@@ -117,7 +118,7 @@ body {
   }
 
   #gameDeals button:hover {
-    background-color: #B4CDCD;
+    background-color: #6996AD;
   }
 
   .deal {

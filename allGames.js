@@ -7,8 +7,11 @@ var input = "";
 var filterType = "Deal Rating";
 var sortDirection = 0; //0 for low-high, 1 for high-low
 var pageNumber = 0;
+    document.getElementById("Previous").disabled = true;
+var pageID = document.getElementById(pageNumber+1);
+    pageID.style.color = '#ee1c25';
 var arrow = document.createElement("i");
-document.getElementById(filterType).appendChild(arrow);
+    document.getElementById(filterType).appendChild(arrow);
 
 function filterInput() {
     input = document.getElementById("Input").value;
@@ -33,16 +36,27 @@ function filter(type) {
 }
 
 function page(pageLocation) {
-    if(pageLocation == 'first') {
-        pageNumber = 0;
-    } else if(pageLocation == 'last') {
-        pageNumber = 0;
-    } else if(pageLocation == 'Next') {
+    pageID.style.color = '#000';
+    document.getElementById("Previous").disabled = false;
+    document.getElementById("Next").disabled = false;
+    document.getElementById("gap2").innerHTML = "";
+     if(pageLocation == 'Next') {
         pageNumber = pageNumber+1;        
     } else if(pageLocation == 'Previous') {
         pageNumber = pageNumber-1;
     } else {
         pageNumber = pageLocation-1;
+    }
+
+    if(pageNumber>-1 && pageNumber <10){
+        pageID = document.getElementById(pageNumber+1);
+        pageID.style.color = '#ee1c25';
+        if (pageNumber==0) {
+            document.getElementById("Previous").disabled = true;
+        }
+    } else {
+        document.getElementById("gap2").innerHTML = pageNumber+1;
+        document.getElementById("gap2").style.color = '#ee1c25';
     }
     getAllGames();
 }
@@ -87,6 +101,9 @@ function displayAllGames(response) {
 
         button.onclick = createButtonTarget(gameId);
         resultDisplayDiv.appendChild(button);
+    }
+    if(gameArray.length<20) {
+        document.getElementById("Next").disabled = true;
     }
 }
 

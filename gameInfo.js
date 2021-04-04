@@ -45,7 +45,7 @@ function handleSearchResult(response) {
 
         button.innerHTML = createStoreButtonHTML(storesInfo[gameInfo.deals[i].storeID-1].storeName, 'https://www.cheapshark.com' + storesInfo[gameInfo.deals[i].storeID-1].images.banner, gameInfo.info.title, gameInfo.deals[i].price);
 
-        button.onclick = createButtonTarget(gameInfo.deals[i].dealID + "}", '_blank');
+        button.onclick = createButtonTarget(gameInfo.deals[i].dealID);
         resultDisplayDiv.appendChild(button);
     }
 }
@@ -71,12 +71,12 @@ function createStoreButtonHTML(store, storeImage, title, price) {
 
 function createButtonTarget(dealID) {
     return function () {
-     location.href = "https://www.cheapshark.com/redirect?dealID={" + dealID + "}";
+     window.open("https://www.cheapshark.com/redirect?dealID={" + dealID + "}");
     }
 }
 
 // function createButtonTarget(dealID) {
 //     return function () {
-//      window.open("https://www.cheapshark.com/redirect?dealID={" + dealID + "}", '_blank');
+//      location.href = "https://www.cheapshark.com/redirect?dealID={" + dealID + "}";
 //     }
 // }

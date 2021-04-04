@@ -3,6 +3,8 @@
   Processing for home page categories
 */
 
+var slideIndex = 1;
+
 function displayHome() {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {
@@ -13,6 +15,7 @@ function displayHome() {
     xmlHttp.open("GET", 'https://www.cheapshark.com/api/1.0/stores', false); // true for asynchronous, false for synchronous
     xmlHttp.send(null);
 
+    getFreeGames()
     getHotDeals();
     getBestDeals();
     getNewGames();
@@ -37,7 +40,7 @@ function displayHotDeals(response) {
 
     var resultDisplayDiv = document.getElementById("Hot Deals");
 
-    for (i = 0; i < gameArray.length; i++) { 
+    for (i = 0; i < gameArray.length; i++) {
         var button = document.createElement("BUTTON");
         var gameId = gameArray[i].gameID;
 
@@ -79,7 +82,7 @@ function displayBestDeals(response) {
 
     var resultDisplayDiv = document.getElementById("Best Deals");
 
-    for (i = 0; i < gameArray.length; i++) { 
+    for (i = 0; i < gameArray.length; i++) {
         var button = document.createElement("BUTTON");
         var gameId = gameArray[i].gameID;
 
@@ -121,7 +124,7 @@ function displayNewGames(response) {
 
     var resultDisplayDiv = document.getElementById("New Games");
 
-    for (i = 0; i < gameArray.length; i++) { 
+    for (i = 0; i < gameArray.length; i++) {
         var button = document.createElement("BUTTON");
         var gameId = gameArray[i].gameID;
 
@@ -144,26 +147,94 @@ function displayNewGames(response) {
     }
 }
 
-    function getImage(J) {
-        var gameInfo = JSON.parse(J);
-        image = gameInfo.info.thumb
-    }
+function getFreeGames() {
 
-    function getStoreImage() {
-        storeImage = 'https://www.cheapshark.com' + storesInfo[gameArray[i].storeID-1].images.logo
-    }
+    var searchURL = "https://www.cheapshark.com/api/1.0/deals?&sortBy=price&upperPrice=0";
 
-    function createButtonHTML(thumb, title, storeImage, price) {
-        return '<div class="gameCard">' +
-            '<img id="gameImage" + src=' + thumb + '>' +
-            '<h2>' + title + '</h2>' +
-            '<h3> $' + price + '</h3>' +
-            '<img id="storeImage" src=' + storeImage + '>' +       
-            '</div>';
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+            displayFreeGames(xmlHttp.responseText);
+        }
     }
+    xmlHttp.open("GET", searchURL, false); // true for asynchronous, false for synchronous
+    xmlHttp.send(null);
+}
+
+function displayFreeGames(response) {
+    gameArray = JSON.parse(response);
+
+    var resultDisplayDiv = document.getElementById("freeGame");
+
+    for (i = 0; i < gameArray.length; i++) {
+        var button = document.createElement("BUTTON");
+        var gameId = gameArray[i].gameID;
+
+        var searchURL = "https://www.cheapshark.com/api/1.0/games?id=" + gameArray[i].gameID;
+
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                getImage(xmlHttp.responseText);
+                getStoreImage();
+            }
+        }
+        xmlHttp.open("GET", searchURL, false); // true for asynchronous, false for synchronous
+        xmlHttp.send(null);
+
+        button.innerHTML = createSlideshowButtonHTML(image, gameArray[i].title, storeImage, gameArray[i].salePrice);
+        button.className = "slideCard"
+
+        button.onclick = createButtonTarget(gameId);
+        resultDisplayDiv.appendChild(button);
+    }
+    showDivs(slideIndex);
+}
+
+function getImage(J) {
+    var gameInfo = JSON.parse(J);
+    image = gameInfo.info.thumb
+}
+
+function getStoreImage() {
+    storeImage = 'https://www.cheapshark.com' + storesInfo[gameArray[i].storeID - 1].images.logo
+}
+
+function createButtonHTML(thumb, title, storeImage, price) {
+    return '<div class="gameCard">' +
+        '<img id="gameImage" + src=' + thumb + '>' +
+        '<h2>' + title + '</h2>' +
+        '<h3> $' + price + '</h3>' +
+        '<img id="storeImage" src=' + storeImage + '>' +
+        '</div>';
+}
+
+function createSlideshowButtonHTML(thumb, title, storeImage, price) {
+    return '<div class="slideGameCard">' +
+        '<img id="slideGameImage" + src=' + thumb + '>' +
+        '<h2>' + title + '</h2>' +
+        '<h3> $' + price + '</h3>' +
+        '<img id="slideStoreImage" src=' + storeImage + '>' +
+        '</div>';
+}
 
 function createButtonTarget(gameID) {
     return function () {
-     location.href = "gameInfo.html?gameID=" + gameID;
+        location.href = "gameInfo.html?gameID=" + gameID;
     }
+}
+
+function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("slideCard");
+    if (n > x.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = x.length }
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    x[slideIndex - 1].style.display = "inline";
+}
+
+function plusDivs(n) {
+    showDivs(slideIndex += n);
 }

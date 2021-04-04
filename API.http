@@ -4,7 +4,7 @@ GET https://www.cheapshark.com/api/1.0/deals?pageSize=10&sortBy=Savings&steamRat
 ###
 GET https://www.cheapshark.com/api/1.0/deals?pageSize=10&sortBy=Reviews
 ###
-GET https://www.cheapshark.com/api/1.0/deals?pageSize=10&sortBy=recent
+GET https://www.cheapshark.com/api/1.0/deals?sortBy=price&upperPrice=0
 ###
 GET https://www.cheapshark.com/api/1.0/games?title=Dirt+Rally
 ###
