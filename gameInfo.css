@@ -73,6 +73,26 @@ body {
     background-color: #ee1c25;
   }
 
+  #currencyButton {
+    background-color: #0065b3;
+    color: white;
+    font-size: 1.75vw;
+    float: right;
+    margin-right: 3vw;
+    margin-top: 0.35vw;
+    padding: 0.35vw;
+  }
+  
+  #currencyButton img {
+    width: 1.75vw;
+    position: relative;
+    top: 0.15vw;
+  }
+  
+  #currencyButton:hover, .currencyButton:focus {
+    color: #000;
+  }
+
   h2 {
       text-align: center;
       margin-top: 3%;
@@ -110,7 +130,14 @@ body {
       text-align: center;
   }
 
-  button {
+  #gameHeader button {
+    background-color: #C3E4ED;
+    margin-bottom: .5%;
+    transition-duration: 0.3s;
+    border: none;
+  }
+
+  #gameDeals button {
     background-color: #C3E4ED;
     margin-bottom: .5%;
     transition-duration: 0.3s;

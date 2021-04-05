@@ -4,116 +4,137 @@
 */
 
 body {
-    color: #fff;
-    font-family: verdana;
-    margin: 0%;
-    background-image: linear-gradient(#000, #1b2853);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    margin-bottom: 1vw;
-  }
-  
-  .header {
-    overflow: auto;
-    background-color: #1b2853;
-  }
-  
-  .header img {
-    float: left;
-    width: 10%;
-    height: auto;
-    padding-left: 2%;
-  }
-  
-  .header h1 {
-    font-size: 3.5vw;
-    color: #fff;
-    display: inline-block;
-    position: relative;
-    padding-left: 3%;
-  }
-  
-  .search {
-    float: right;
-    padding-right: 15%;
-    padding-top: 3%;
-  }
-  
-  .search input[type="text"] {
-    width: 35vw;
-    padding: 1vw;
-    border: none;
-    font-size: 1.5vw;
-  }
-  
-  nav {
-    list-style-type: none;
-    overflow: hidden;
-    background-color: #0065b3;
-  }
-  
-  li {
-    float: left;
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 1vw 5vw;
-    font-size: 1.5vw;
-    text-decoration: none;
-  }
-  
-  li a:hover {
-    color: #000000;
-  }
-  
-  .active {
-    background-color: #ee1c25;
-  }
+  color: #fff;
+  font-family: verdana;
+  margin: 0%;
+  background-image: linear-gradient(#000, #1b2853);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin-bottom: 1vw;
+}
 
-  #searchTerm {
-    font-size: 2vw;
-    margin-bottom: 3vw;
-  }
+.header {
+  overflow: auto;
+  background-color: #1b2853;
+}
 
-  #searchResultDisplay {
-    text-align: center;
-    margin-left: 8vw;
-    margin-right: 8vw;
-  }
+.header img {
+  float: left;
+  width: 10%;
+  height: auto;
+  padding-left: 2%;
+}
 
-  #searchResultDisplay button {
-    width: 18vw;
-    margin: 0.6vw;
-  }
+.header h1 {
+  font-size: 3.5vw;
+  color: #fff;
+  display: inline-block;
+  position: relative;
+  padding-left: 3%;
+}
 
-  .gameCard img {
-    height: 5vw;
-    width: auto;
-  }
-  
-  .gameCard h2 {
-    font-size: 1vw;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .gameCard h3 {
-    font-size: 1.25vw;
-    float: right;
-    margin-right: 3vw;
-  }
+.search {
+  float: right;
+  padding-right: 15%;
+  padding-top: 3%;
+}
 
-  button {
-    background-color: #C3E4ED;
-    margin-bottom: .5vw;
-    transition-duration: 0.3s;
-    border: none;
-  }
+.search input[type="text"] {
+  width: 35vw;
+  padding: 1vw;
+  border: none;
+  font-size: 1.5vw;
+}
 
-  button:hover {
-    background-color: #6996AD;
-  }
+nav {
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #0065b3;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 1vw 5vw;
+  font-size: 1.5vw;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: #000000;
+}
+
+.active {
+  background-color: #ee1c25;
+}
+
+#currencyButton {
+  background-color: #0065b3;
+  color: white;
+  font-size: 1.75vw;
+  float: right;
+  margin-right: 3vw;
+  margin-top: 0.35vw;
+  padding: 0.35vw;
+}
+
+#currencyButton img {
+  width: 1.75vw;
+  position: relative;
+  top: 0.15vw;
+}
+
+#currencyButton:hover,
+.currencyButton:focus {
+  color: #000;
+}
+
+#searchTerm {
+  font-size: 2vw;
+  margin-bottom: 3vw;
+}
+
+#searchResultDisplay {
+  text-align: center;
+  margin-left: 8vw;
+  margin-right: 8vw;
+}
+
+#searchResultDisplay button {
+  width: 18vw;
+  margin: 0.6vw;
+}
+
+.gameCard img {
+  height: 5vw;
+  width: auto;
+}
+
+.gameCard h2 {
+  font-size: 1vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gameCard h3 {
+  font-size: 1.25vw;
+  float: right;
+  margin-right: 3vw;
+}
+
+#searchResultDisplay button {
+  background-color: #c3e4ed;
+  margin-bottom: 0.5vw;
+  transition-duration: 0.3s;
+  border: none;
+}
+
+#searchResultDisplay button:hover {
+  background-color: #6996ad;
+}

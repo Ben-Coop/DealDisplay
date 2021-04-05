@@ -3,6 +3,21 @@
   Processing of search bar input
 */
 
+var currencyMultiplier = 1;
+
+function changeCurrency() {
+    var button = document.getElementById("currencyButton");
+    if(button.innerText == 'CAD'){
+        button.innerText = "USD"
+        button.innerHTML += '<img src="assets/US.png"/>'
+        currencyMultiplier = 1;
+    } else {
+        button.innerText = "CAD";
+        button.innerHTML += '<img src="assets/Canada.png"/>'
+        currencyMultiplier = 1.26;    
+    }
+    sendSearch();
+  }
 
 function sendSearch() {
     var searchString = window.location.search;
@@ -59,7 +74,7 @@ function handleSearchResult(response) {
     return '<div class="gameCard">' +  
                 '<img src=' + thumb + '>' +
                 '<h2>' + title + '</h2>' +
-                '<h3> $' + price + '</h3>' +
+                '<h3> $' + (price*currencyMultiplier).toFixed(2) + '</h3>' +
             '</div>';
 }
 

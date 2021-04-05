@@ -21,7 +21,7 @@
     <!--Header-->
     <div class="header">
       <!--Logo and Title-->
-      <a href="home.html"> <img src="assets/dealDisplay.png" /></a>
+      <a href="home.html"> <img src="assets/dealDisplay.png"/></a>
       <a href="home.html">
         <h1>Deal Display</h1>
       </a>
@@ -41,6 +41,8 @@
       <li><a class="active" href="home.html">Home</a></li>
       <li><a href="allGames.html">All Games</a></li>
       <li><a href="about.html">About</a></li>
+
+        <button onclick="changeCurrency()" id="currencyButton">USD <img src="assets/US.png"/></button>
     </nav>
 
     <!--Featured Games-->
@@ -55,16 +57,19 @@
     <!--Hot Deals-->
     <div id="Hot Deals" class="column">
       <h2>Hot Deals</h2>
+      <div id="hotDealsGames"></div>
     </div>
 
     <!--Best Deals-->
     <div id="Best Deals" class="column">
       <h2>Best Deals</h2>
+      <div id="bestDealsGames"></div>
     </div>
 
     <!--New Games-->
     <div id="New Games" class="column">
       <h2>New Games</h2>
+      <div id="newGames"></div>
     </div>
     <script src="home.js"></script>
   </body>

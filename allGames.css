@@ -71,6 +71,26 @@ li a:hover {
   background-color: #ee1c25;
 }
 
+#currencyButton {
+  background-color: #0065b3;
+  color: white;
+  font-size: 1.75vw;
+  float: right;
+  margin-right: 3vw;
+  margin-top: 0.35vw;
+  padding: 0.35vw;
+}
+
+#currencyButton img {
+  width: 1.75vw;
+  position: relative;
+  top: 0.15vw;
+}
+
+#currencyButton:hover, .currencyButton:focus {
+  color: #000;
+}
+
 #Games {
   text-align: center;
   margin-left: 8vw;

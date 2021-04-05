@@ -3,6 +3,22 @@
   Processing of user input on game-cards
 */
 
+var currencyMultiplier = 1;
+
+function changeCurrency() {
+    var button = document.getElementById("currencyButton");
+    if(button.innerText == 'CAD'){
+        button.innerText = "USD"
+        button.innerHTML += '<img src="assets/US.png"/>'
+        currencyMultiplier = 1;
+    } else {
+        button.innerText = "CAD";
+        button.innerHTML += '<img src="assets/Canada.png"/>'
+        currencyMultiplier = 1.26;    
+    }
+    gameSearch();
+  }
+
 function gameSearch() {
     var searchGame = window.location.search;
     var gameId = searchGame.slice(8);
@@ -23,6 +39,7 @@ function handleSearchResult(response) {
     var gameInfo = JSON.parse(response);
 
     var resultDisplayDiv = document.getElementById("gameHeader");
+    resultDisplayDiv.innerHTML = "";
 
     var button = document.createElement("BUTTON");
 
@@ -40,6 +57,8 @@ function handleSearchResult(response) {
     xmlHttp.send(null);
 
     var resultDisplayDiv = document.getElementById("gameDeals");
+    resultDisplayDiv.innerHTML = "";
+
     for (var i = 0; i < gameInfo.deals.length; i++) {
         var button = document.createElement("BUTTON");
 
@@ -54,9 +73,9 @@ function createButtonHTML(title, thumb, retailPrice, currentPrice, lowestPrice) 
     return '<div class="game">' +
         '<h2>' + title + '</h2>' +
         '<img src=' + thumb + '>' +
-        '<h3> Retail Price: $' + retailPrice + '</h3>' +
-        '<h3> Current Low: $' + currentPrice + '</h3>' +
-        '<h3> All Time Low: $' + lowestPrice + '</h3>' +
+        '<h3> Retail Price: $' + (retailPrice*currencyMultiplier).toFixed(2) + '</h3>' +
+        '<h3> Current Low: $' + (currentPrice*currencyMultiplier).toFixed(2) + '</h3>' +
+        '<h3> All Time Low: $' + (lowestPrice*currencyMultiplier).toFixed(2) + '</h3>' +
         '</div>';
 }
 
@@ -65,7 +84,7 @@ function createStoreButtonHTML(store, storeImage, title, price) {
         '<img src=' + storeImage + '>' +
         '<h2>' + title + '</h2>' +
         '<h3> From ' + store + '</h3>' +
-        '<h4> $' + price + '</h4>' +
+        '<h4> $' + (price*currencyMultiplier).toFixed(2) + '</h4>' +
         '</div>';
 }
 

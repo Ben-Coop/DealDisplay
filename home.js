@@ -4,6 +4,21 @@
 */
 
 var slideIndex = 1;
+var currencyMultiplier = 1;
+
+function changeCurrency() {
+    var button = document.getElementById("currencyButton");
+    if (button.innerText == 'CAD') {
+        button.innerText = "USD"
+        button.innerHTML += '<img src="assets/US.png"/>'
+        currencyMultiplier = 1;
+    } else {
+        button.innerText = "CAD";
+        button.innerHTML += '<img src="assets/Canada.png"/>'
+        currencyMultiplier = 1.26;
+    }
+    displayHome();
+}
 
 function displayHome() {
     var xmlHttp = new XMLHttpRequest();
@@ -38,7 +53,9 @@ function getHotDeals() {
 function displayHotDeals(response) {
     gameArray = JSON.parse(response);
 
-    var resultDisplayDiv = document.getElementById("Hot Deals");
+    var resultDisplayDiv = document.getElementById("hotDealsGames");
+    resultDisplayDiv.innerHTML = "";
+
 
     for (i = 0; i < gameArray.length; i++) {
         var button = document.createElement("BUTTON");
@@ -80,7 +97,9 @@ function getBestDeals() {
 function displayBestDeals(response) {
     gameArray = JSON.parse(response);
 
-    var resultDisplayDiv = document.getElementById("Best Deals");
+    var resultDisplayDiv = document.getElementById("bestDealsGames");
+    resultDisplayDiv.innerHTML = "";
+
 
     for (i = 0; i < gameArray.length; i++) {
         var button = document.createElement("BUTTON");
@@ -122,7 +141,9 @@ function getNewGames() {
 function displayNewGames(response) {
     gameArray = JSON.parse(response);
 
-    var resultDisplayDiv = document.getElementById("New Games");
+    var resultDisplayDiv = document.getElementById("newGames");
+    resultDisplayDiv.innerHTML = "";
+
 
     for (i = 0; i < gameArray.length; i++) {
         var button = document.createElement("BUTTON");
@@ -165,6 +186,8 @@ function displayFreeGames(response) {
     gameArray = JSON.parse(response);
 
     var resultDisplayDiv = document.getElementById("freeGame");
+    resultDisplayDiv.innerHTML = "";
+
 
     for (i = 0; i < gameArray.length; i++) {
         var button = document.createElement("BUTTON");
@@ -204,7 +227,7 @@ function createButtonHTML(thumb, title, storeImage, price) {
     return '<div class="gameCard">' +
         '<img id="gameImage" + src=' + thumb + '>' +
         '<h2>' + title + '</h2>' +
-        '<h3> $' + price + '</h3>' +
+        '<h3> $' + (price * currencyMultiplier).toFixed(2) + '</h3>' +
         '<img id="storeImage" src=' + storeImage + '>' +
         '</div>';
 }
@@ -213,7 +236,7 @@ function createSlideshowButtonHTML(thumb, title, storeImage, price) {
     return '<div class="slideGameCard">' +
         '<img id="slideGameImage" + src=' + thumb + '>' +
         '<h2>' + title + '</h2>' +
-        '<h3> $' + price + '</h3>' +
+        '<h3> $' + (price * currencyMultiplier).toFixed(2) + '</h3>' +
         '<img id="slideStoreImage" src=' + storeImage + '>' +
         '</div>';
 }
