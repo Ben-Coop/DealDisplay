@@ -3,8 +3,9 @@
   Processing of user input on game-cards
 */
 
-var currencyMultiplier = 1;
+var currencyMultiplier = 1; //multiplier for currency change function
 
+//Changes from USD to CAD upon button press
 function changeCurrency() {
     var button = document.getElementById("currencyButton");
     if(button.innerText == 'CAD'){
@@ -19,6 +20,7 @@ function changeCurrency() {
     gameSearch();
   }
 
+//Sends HTTP search for a specific game
 function gameSearch() {
     var searchGame = window.location.search;
     var gameId = searchGame.slice(8);
@@ -35,6 +37,7 @@ function gameSearch() {
     xmlHttp.send(null);
 }
 
+//Displays previous HTTP search results in game-cards
 function handleSearchResult(response) {
     var gameInfo = JSON.parse(response);
 
@@ -69,6 +72,7 @@ function handleSearchResult(response) {
     }
 }
 
+//Returns dynamic HTML code used to create the top game-card
 function createButtonHTML(title, thumb, retailPrice, currentPrice, lowestPrice) {
     return '<div class="game">' +
         '<h2>' + title + '</h2>' +
@@ -79,6 +83,7 @@ function createButtonHTML(title, thumb, retailPrice, currentPrice, lowestPrice) 
         '</div>';
 }
 
+//Returns dynamic HTML code used to create each deal-card
 function createStoreButtonHTML(store, storeImage, title, price) {
     return '<div class="deal">' +
         '<img src=' + storeImage + '>' +
@@ -88,14 +93,9 @@ function createStoreButtonHTML(store, storeImage, title, price) {
         '</div>';
 }
 
+//Returns the link to a certain deal, used inside a loop to asign a link to each deal-card
 function createButtonTarget(dealID) {
     return function () {
      window.open("https://www.cheapshark.com/redirect?dealID={" + dealID + "}");
     }
 }
-
-// function createButtonTarget(dealID) {
-//     return function () {
-//      location.href = "https://www.cheapshark.com/redirect?dealID={" + dealID + "}";
-//     }
-// }

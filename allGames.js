@@ -3,37 +3,40 @@
   Processing of all games page
 */
 
-var input = "";
-var filterType = "Deal Rating";
+var input = ""; //user's input in the seaarch bar
+var filterType = "Deal Rating"; //selcted search term, default is deal rating
 var sortDirection = 0; //0 for low-high, 1 for high-low
-var pageNumber = 0;
-    document.getElementById("Previous").disabled = true;
-var pageID = document.getElementById(pageNumber+1);
-    pageID.style.color = '#ee1c25';
+var pageNumber = 0; //current page number
+    document.getElementById("Previous").disabled = true; //previous button is disabled on first page
+var pageID = document.getElementById(pageNumber+1); //HTML ID of current page
+    pageID.style.color = '#ee1c25'; 
 var arrow = document.createElement("i");
-    document.getElementById(filterType).appendChild(arrow);
+    document.getElementById(filterType).appendChild(arrow); //arrow indicator in filtering section
 
-    var currencyMultiplier = 1;
+var currencyMultiplier = 1; //multiplier for currency change function
 
+//Changes from USD to CAD upon button press
 function changeCurrency() {
     var button = document.getElementById("currencyButton");
     if(button.innerText == 'CAD'){
         button.innerText = "USD"
-        button.innerHTML += '<img src="assets/US.png"/>'
+        button.innerHTML += '<img src="assets/US.png">'
         currencyMultiplier = 1;
     } else {
         button.innerText = "CAD";
-        button.innerHTML += '<img src="assets/Canada.png"/>'
+        button.innerHTML += '<img src="assets/Canada.png">'
         currencyMultiplier = 1.26;    
     }
     getAllGames();
   }
 
+//Filters the displayed games based on the user's input using the text bar
 function filterInput() {
     input = document.getElementById("Input").value;
     getAllGames();
 }
 
+//Filters the displayed games based on the filter buttons
 function filter(type) {
     if(filterType == type) {
         if(sortDirection == 0) {
@@ -51,6 +54,7 @@ function filter(type) {
     getAllGames();
 }
 
+//Changes the currnent page upon pressing any of the paging buttons
 function page(pageLocation) {
     pageID.style.color = '#000';
     document.getElementById("Previous").disabled = false;
@@ -77,6 +81,7 @@ function page(pageLocation) {
     getAllGames();
 }
 
+//Sends HTTP search for all games within filter parameters
 function getAllGames() {
     var resultDisplayDiv = document.getElementById("Games");
     
@@ -94,6 +99,7 @@ function getAllGames() {
     xmlHttp.send(null);
 }
 
+//Displays previous HTTP search results in game-cards
 function displayAllGames(response) {
     gameArray = JSON.parse(response);
 
@@ -123,20 +129,22 @@ function displayAllGames(response) {
     }
 }
 
-    function getImage(J) {
-        var gameInfo = JSON.parse(J);
-        image = gameInfo.info.thumb
-    }
+//Isolates just the image from a JSON of game data
+function getImage(J) {
+    var gameInfo = JSON.parse(J);
+    image = gameInfo.info.thumb
+ }
 
+//Returns dynamic HTML code used to create each game-card 
+function createButtonHTML(thumb, title, price) {
+    return '<div class="gameCard">' +
+        '<img src=' + thumb + '/>' +
+        '<h2>' + title + '</h2>' +
+        '<h3> $' + (price*currencyMultiplier).toFixed(2) + '</h3>' +
+        '</div>';
+}
 
-    function createButtonHTML(thumb, title, price) {
-        return '<div class="gameCard">' +
-            '<img src=' + thumb + '/>' +
-            '<h2>' + title + '</h2>' +
-            '<h3> $' + (price*currencyMultiplier).toFixed(2) + '</h3>' +
-            '</div>';
-    }
-
+//Returns the link to a certain deal, used inside a loop to asign a link to each game-card
 function createButtonTarget(gameID) {
     return function () {
      location.href = "gameInfo.html?gameID=" + gameID;

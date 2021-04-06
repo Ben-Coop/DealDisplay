@@ -1,11 +1,12 @@
 /*
   home.js
-  Processing for home page categories
+  Processing of home page categories
 */
 
-var slideIndex = 1;
-var currencyMultiplier = 1;
+var slideIndex = 1; //index for free games slideshow
+var currencyMultiplier = 1; //multiplier for currency change function
 
+//Changes from USD to CAD upon button press
 function changeCurrency() {
     var button = document.getElementById("currencyButton");
     if (button.innerText == 'CAD') {
@@ -20,6 +21,7 @@ function changeCurrency() {
     displayHome();
 }
 
+//Run several searches and display game-cards upon loading the page
 function displayHome() {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {
@@ -36,9 +38,10 @@ function displayHome() {
     getNewGames();
 }
 
+//Sends HTTP search for hot deals
 function getHotDeals() {
 
-    var searchURL = "https://www.cheapshark.com/api/1.0/deals?pageSize=5&lowerPrice=3&steamRating=50";
+    var searchURL = "https://www.cheapshark.com/api/1.0/deals?pageSize=5&sortBy=deal+Rating&lowerPrice=0.01&steamRating=90&metacritic=86";
 
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {
@@ -50,6 +53,7 @@ function getHotDeals() {
     xmlHttp.send(null);
 }
 
+//Displays previous HTTP search results in game-cards
 function displayHotDeals(response) {
     gameArray = JSON.parse(response);
 
@@ -80,6 +84,7 @@ function displayHotDeals(response) {
     }
 }
 
+//Sends HTTP search for best deals
 function getBestDeals() {
 
     var searchURL = "https://www.cheapshark.com/api/1.0/deals?pageSize=5&sortBy=Savings&steamRating=90&metacritic=90&lowerPrice=5";
@@ -94,6 +99,7 @@ function getBestDeals() {
     xmlHttp.send(null);
 }
 
+//Displays previous HTTP search results in game-cards
 function displayBestDeals(response) {
     gameArray = JSON.parse(response);
 
@@ -124,6 +130,7 @@ function displayBestDeals(response) {
     }
 }
 
+//Sends HTTP search for new games
 function getNewGames() {
 
     var searchURL = "https://www.cheapshark.com/api/1.0/deals?pageSize=5&sortBy=release";
@@ -138,6 +145,7 @@ function getNewGames() {
     xmlHttp.send(null);
 }
 
+//Displays previous HTTP search results in game-cards
 function displayNewGames(response) {
     gameArray = JSON.parse(response);
 
@@ -168,6 +176,7 @@ function displayNewGames(response) {
     }
 }
 
+//Sends HTTP search for free games
 function getFreeGames() {
 
     var searchURL = "https://www.cheapshark.com/api/1.0/deals?&sortBy=price&upperPrice=0";
@@ -182,6 +191,7 @@ function getFreeGames() {
     xmlHttp.send(null);
 }
 
+//Displays previous HTTP search results in game-cards
 function displayFreeGames(response) {
     gameArray = JSON.parse(response);
 
@@ -214,15 +224,18 @@ function displayFreeGames(response) {
     showDivs(slideIndex);
 }
 
+//Isolates just the image from a JSON of game data
 function getImage(J) {
     var gameInfo = JSON.parse(J);
     image = gameInfo.info.thumb
 }
 
+//Isolates just the store's image from a JSON of store data
 function getStoreImage() {
     storeImage = 'https://www.cheapshark.com' + storesInfo[gameArray[i].storeID - 1].images.logo
 }
 
+//Returns dynamic HTML code used to create each game-card in the columns
 function createButtonHTML(thumb, title, storeImage, price) {
     return '<div class="gameCard">' +
         '<img id="gameImage" + src=' + thumb + '>' +
@@ -232,6 +245,7 @@ function createButtonHTML(thumb, title, storeImage, price) {
         '</div>';
 }
 
+//Returns dynamic HTML code used to create each game-card in the slideshow
 function createSlideshowButtonHTML(thumb, title, storeImage, price) {
     return '<div class="slideGameCard">' +
         '<img id="slideGameImage" + src=' + thumb + '>' +
@@ -241,12 +255,14 @@ function createSlideshowButtonHTML(thumb, title, storeImage, price) {
         '</div>';
 }
 
+//Returns the link to a certain deal, used inside a loop to asign a link to each game-card
 function createButtonTarget(gameID) {
     return function () {
         location.href = "gameInfo.html?gameID=" + gameID;
     }
 }
 
+//Scrolls through the slideshow by hiding all game-cards except for index[i]
 function showDivs(n) {
     var i;
     var x = document.getElementsByClassName("slideCard");
@@ -258,6 +274,7 @@ function showDivs(n) {
     x[slideIndex - 1].style.display = "inline";
 }
 
+//Scrolls through the slideshow upon pressing the left or right arrow buttons
 function plusDivs(n) {
     showDivs(slideIndex += n);
 }

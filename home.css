@@ -87,7 +87,8 @@ li a:hover {
   top: 0.15vw;
 }
 
-#currencyButton:hover, .currencyButton:focus {
+#currencyButton:hover,
+.currencyButton:focus {
   color: #000;
 }
 
@@ -110,11 +111,13 @@ li a:hover {
   margin-left: 12vw;
   margin-right: 0;
   height: 11.55vw;
+  width: auto;
 }
 
 .right {
   float: inline-end;
   height: 11.55vw;
+  width: auto;
 }
 
 .slideGameCard {
@@ -135,7 +138,7 @@ li a:hover {
 #slideGameImage {
   float: left;
   width: auto;
-  height:7.5vw;
+  height: 7.5vw;
   margin-right: 3%;
 }
 
@@ -160,16 +163,16 @@ li a:hover {
   color: #ee1c25;
 }
 
-  .column button {
-    background-color: #C3E4ED;
-    margin-bottom: .5vw;
-    transition-duration: 0.3s;
-    border: none;
-  }
+.column button {
+  background-color: #c3e4ed;
+  margin-bottom: 0.5vw;
+  transition-duration: 0.3s;
+  border: none;
+}
 
-  .column button:hover {
-    background-color: #6996AD;
-  }
+.column button:hover {
+  background-color: #6996ad;
+}
 
 .gameCard {
   width: 28vw;
@@ -194,7 +197,7 @@ li a:hover {
 #gameImage {
   float: left;
   width: auto;
-  height:4.5vw;
+  height: 4.5vw;
   margin-right: 3%;
 }
 
@@ -202,6 +205,6 @@ li a:hover {
   float: right;
   width: 3vw;
   height: auto;
-  margin-top: .8vw;
+  margin-top: 0.8vw;
   margin-right: 1vw;
 }

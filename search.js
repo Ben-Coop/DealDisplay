@@ -3,7 +3,7 @@
   Processing of search bar input
 */
 
-var currencyMultiplier = 1;
+var currencyMultiplier = 1; //multiplier for currency change function
 
 function changeCurrency() {
     var button = document.getElementById("currencyButton");
@@ -19,6 +19,7 @@ function changeCurrency() {
     sendSearch();
   }
 
+//Sends HTTP search for the user's input
 function sendSearch() {
     var searchString = window.location.search;
     var userSearch = searchString.slice(14);
@@ -38,6 +39,7 @@ function sendSearch() {
     xmlHttp.send(null);
 }
 
+//Displays previous HTTP search results in game-cards
 function handleSearchResult(response) {
     var gameArray = JSON.parse(response);
 
@@ -65,19 +67,22 @@ function handleSearchResult(response) {
     }
  }
 
+ //Isolates just the image from a JSON of game data
  function getImage(J) {
     var gameInfo = JSON.parse(J);
     image = gameInfo.info.thumb
 }
 
+//Returns dynamic HTML code used to create each game-card
  function createButtonHTML(thumb, title, price) {
     return '<div class="gameCard">' +  
-                '<img src=' + thumb + '>' +
-                '<h2>' + title + '</h2>' +
-                '<h3> $' + (price*currencyMultiplier).toFixed(2) + '</h3>' +
+            '<img src=' + thumb + '>' +
+            '<h2>' + title + '</h2>' +
+            '<h3> $' + (price*currencyMultiplier).toFixed(2) + '</h3>' +
             '</div>';
 }
 
+//Returns the link to a certain deal, used inside a loop to asign a link to each game-card
 function createButtonTarget(gameID) {
     return function () {
      location.href = "gameInfo.html?gameID=" + gameID;
