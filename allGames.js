@@ -3,7 +3,7 @@
   Processing of all games page
 */
 
-var input = ""; //user's input in the seaarch bar
+var input = ""; //user's input in the search bar
 var filterType = "Deal Rating"; //selcted search term, default is deal rating
 var sortDirection = 0; //0 for low-high, 1 for high-low
 var pageNumber = 0; //current page number
