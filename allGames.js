@@ -3,15 +3,15 @@
   Processing of all games page
 */
 
-var input = ""; //user's input in the search bar
-var filterType = "Deal Rating"; //selcted search term, default is deal rating
+var input = ""; //user's input in the filter bar
+var sortType = "Deal Rating"; //selcted sort term, default is deal rating
 var sortDirection = 0; //0 for low-high, 1 for high-low
 var pageNumber = 0; //current page number
     document.getElementById("Previous").disabled = true; //previous button is disabled on first page
 var pageID = document.getElementById(pageNumber+1); //HTML ID of current page
     pageID.style.color = '#ee1c25'; 
 var arrow = document.createElement("i");
-    document.getElementById(filterType).appendChild(arrow); //arrow indicator in filtering section
+    document.getElementById(sortType).appendChild(arrow); //arrow indicator in sorting section
 
 var currencyMultiplier = 1; //multiplier for currency change function
 
@@ -36,9 +36,9 @@ function filterInput() {
     getAllGames();
 }
 
-//Filters the displayed games based on the filter buttons
-function filter(type) {
-    if(filterType == type) {
+//sorts the displayed games based on the sorting buttons
+function sort(type) {
+    if(sortType == type) {
         if(sortDirection == 0) {
             sortDirection = 1;
             arrow.style.transform = "rotate(-135deg)";
@@ -47,9 +47,9 @@ function filter(type) {
             arrow.style.transform = "rotate(45deg)";
         }
     } else {
-        filterType = type;
+        sortType = type;
         sortDirection = 0;
-        document.getElementById(filterType).appendChild(arrow);
+        document.getElementById(sortType).appendChild(arrow);
     }
     getAllGames();
 }
@@ -87,7 +87,7 @@ function getAllGames() {
     
     resultDisplayDiv.innerHTML = "";
 
-    var searchURL = "https://www.cheapshark.com/api/1.0/deals?storeID=1&pageSize=20&sortBy=" + filterType + "&desc=" + sortDirection + "&pageNumber=" + pageNumber + "&title=" + input;
+    var searchURL = "https://www.cheapshark.com/api/1.0/deals?storeID=1&pageSize=20&sortBy=" + sortType + "&desc=" + sortDirection + "&pageNumber=" + pageNumber + "&title=" + input;
 
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {
